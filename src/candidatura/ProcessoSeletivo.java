@@ -1,5 +1,6 @@
 package candidatura;
 
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class ProcessoSeletivo {
@@ -10,8 +11,11 @@ public class ProcessoSeletivo {
         analisarCandidato(2200.0);
         analisarCandidato(2000.0);
 
-        System.out.println("-- Seleção de candidatos --");
+        System.out.println("\n-- Seleção de candidatos --");
         selecaoCandidatos();
+
+        System.out.println("\n-- Imprimir Selecionados --");
+        imprimirSelecionados();
     }
 
     static void analisarCandidato(double salarioPretendido) {
@@ -49,5 +53,28 @@ public class ProcessoSeletivo {
 
     static double valorPretendido() {
         return ThreadLocalRandom.current().nextDouble(1500, 2500);
+    }
+
+    static void imprimirSelecionados() {
+        String[] candidatos = {"Maria", "João", "Ana", "Pedro", "Clara", "Lucas", "Isabella", "Bruno", "Carolina", "Gustavo"};
+        System.out.println("Imprimindo a lista de candidatos de acordo com o índice");
+
+        for (int i = 0; i < candidatos.length; i++) {
+            System.out.println("O candidato de número " + (i+1) + " é " + candidatos[i]);
+        }
+    }
+
+    static boolean atender() {
+        return new Random().nextInt(3)==1;
+    }
+
+    static void entrandoEmContato(String candidato) {
+        int tentativasRealizadas = 1;
+        boolean continuaTentando = true;
+        boolean atendeu = false;
+
+        do {
+
+        } while(continuaTentando && tentativasRealizadas < 3);
     }
 }
