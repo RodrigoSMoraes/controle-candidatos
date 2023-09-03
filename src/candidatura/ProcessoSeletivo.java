@@ -16,6 +16,11 @@ public class ProcessoSeletivo {
 
         System.out.println("\n-- Imprimir Selecionados --");
         imprimirSelecionados();
+
+        String[] candidatos = {"Maria", "João", "Ana", "Pedro", "Clara", "Lucas", "Isabella", "Bruno", "Carolina", "Gustavo"};
+        for (String candidato : candidatos) {
+            entrandoEmContato(candidato);
+        }
     }
 
     static void analisarCandidato(double salarioPretendido) {
@@ -74,7 +79,19 @@ public class ProcessoSeletivo {
         boolean atendeu = false;
 
         do {
-
+            atendeu = atender();
+            continuaTentando = !atendeu;
+            if(continuaTentando) {
+                tentativasRealizadas++;
+            }else {
+                System.out.println("Contato realizado com sucesso!");
+            }
         } while(continuaTentando && tentativasRealizadas < 3);
+
+        if(atendeu) {
+            System.out.println("Conseguimos o contato com " + candidato + " com " + tentativasRealizadas + " tentativas!");
+        }else {
+            System.out.println("NÃO conseguimos o contato com " + candidato + " com " + tentativasRealizadas + " tentativas!");
+        }
     }
 }
